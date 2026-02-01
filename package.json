@@ -7,7 +7,7 @@
     "dev": "cross-env NODE_ENV=development tsx watch src/server/index.ts",
     "build": "eslint . --ext .ts,.tsx && node build.mjs && npm run sentry:sourcemaps",
     "build:vercel": "node build.mjs",
-    "start": "cross-env NODE_ENV=production node dist/server/index.js",
+    "start": "cross-env NODE_ENV=production tsx src/server/index.ts",
     "lint": "eslint . --ext .ts,.tsx",
     "remotion": "remotion studio",
     "render": "remotion render",
