@@ -46,7 +46,7 @@ export const Loading = () => {
           return;
         }
 
-        window.location.href = `/${username}`;
+        window.location.href = `${import.meta.env.BASE_URL}${username}`;
       })
       .catch((err) => {
         console.log(err);

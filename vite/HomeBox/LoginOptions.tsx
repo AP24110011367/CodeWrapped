@@ -40,7 +40,7 @@ export const LoginOptions: React.FC<Props> = ({
             setUserNotFound(true);
           } else {
             setUserNotFound(false);
-            window.location.href = `/loading/${cleanedUsername}`;
+            window.location.href = `${import.meta.env.BASE_URL}loading/${cleanedUsername}`;
           }
         })
         .catch((error) => console.log("error", error));
