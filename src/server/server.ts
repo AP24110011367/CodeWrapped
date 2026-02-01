@@ -52,6 +52,7 @@ const startViteDevelopmentServer = async (app: Express) => {
   const server = await createServer({
     configFile: false,
     root: viteDir,
+    base: "/",
     server: {
       middlewareMode: true,
     },
