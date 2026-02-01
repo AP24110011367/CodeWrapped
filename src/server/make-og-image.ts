@@ -1,17 +1,11 @@
-import {
-  renderStillOnLambda,
-  speculateFunctionName,
-} from "@remotion/lambda/client";
-import type { z } from "zod";
-import type { ProfileStats, ogImageSchema } from "../config.js";
-import { DISK, RAM, SITE_NAME, TIMEOUT, parseTopLanguage } from "../config.js";
-import { getIgStory, getOgImage, saveIgStory, saveOgImage } from "./db.js";
-import { getRandomRegion } from "./render.js";
+import type { ProfileStats } from "../config.js";
+import { renderStillLocally } from "./local-render.js";
 
 export const makeOrGetOgImage = async (profileStats: ProfileStats) => {
-  return "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png";
+  // We assume username is available in profileStats.
+  return renderStillLocally(profileStats.username, "og-image");
 };
 
 export const makeOrGetIgStory = async (profileStats: ProfileStats) => {
-  return "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png";
+  return renderStillLocally(profileStats.username, "ig-story");
 };

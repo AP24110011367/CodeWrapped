@@ -90,14 +90,16 @@ export const ZeroIssues: React.FC = () => {
       ))}
       <div
         style={{
-          fontFamily: "Mona Sans",
+          fontFamily: "Outfit",
           fontWeight: "bold",
           fontSize: 45,
           marginTop: 650,
           opacity,
+          textAlign: "center",
+          textShadow: "0 0 20px rgba(125, 95, 255, 0.5)",
         }}
       >
-        I take no issue with that.
+        No Issues? Flawless Victory.
       </div>
       {isMobileDevice() ? null : (
         <Sequence from={90 - 5}>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CheckmarkIcon } from "../../icons/CheckmarkIcon";
 import { CopyIcon } from "../../icons/CopyIcon";
+import { InstagramIcon } from "../../icons/InstagramIcon";
 import { LinkedInIcon } from "../../icons/LinkedInIcon";
 import { XIcon } from "../../icons/XIcon";
 import type { AboutItemContent } from "../About/content";
@@ -62,8 +63,21 @@ const ShareToLinkedinButton = () => {
   );
 };
 
+const ShareToInstagramButton = () => {
+  return (
+    <SharingAction
+      icon={(params) => <InstagramIcon {...params} />}
+      label={"Open Instagram"}
+      className={styles.sharePageButton}
+      onClick={() => {
+        window.open("https://instagram.com");
+      }}
+    />
+  );
+};
+
 export const useShareContent = (
-  platform: "linkedin" | "twitter" | undefined,
+  platform: "linkedin" | "twitter" | "instagram" | undefined,
 ): AboutItemContent[] => {
   const step1Content = {
     step: 1,
@@ -80,6 +94,22 @@ export const useShareContent = (
           step: 2,
           title: "Navigate to your LinkedIn profile and start a new post",
           node: <ShareToLinkedinButton />,
+        },
+        {
+          step: 3,
+          title: "Upload your video and add a description",
+          node: <CopyDescriptionButton />,
+        },
+      ];
+    }
+
+    case "instagram": {
+      return [
+        step1Content,
+        {
+          step: 2,
+          title: "Open Instagram and start a new reel/post",
+          node: <ShareToInstagramButton />,
         },
         {
           step: 3,
@@ -116,6 +146,7 @@ export const useShareContent = (
             <div className={styles.sharePageSocialsContainer}>
               <ShareToLinkedinButton />
               <ShareToXButton />
+              <ShareToInstagramButton />
             </div>
           ),
         },

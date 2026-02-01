@@ -1,4 +1,4 @@
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate, Link } from "@tanstack/react-router";
 import React, { useCallback } from "react";
 import { InstagramIcon } from "../../icons/InstagramIcon";
 import { ShareIcon } from "../../icons/ShareIcon";
@@ -73,13 +73,17 @@ export const MobileActionsContainer: React.FC = () => {
           <ShareIcon width={20} color="white" />
         </Button>
       </div>
-      <a href={`/ig/${username}.jpg`}>
+      <Link
+        to={shareRoute.id}
+        params={{ username }}
+        search={{ platform: "instagram" }}
+      >
         <SharingAction
           icon={(params) => <InstagramIcon {...params} />}
-          label="Download story (image)"
+          label="Share on Instagram"
           style={{ width: "100%", justifyContent: "flex-start", padding: 0 }}
         />
-      </a>
+      </Link>
     </div>
   );
 };

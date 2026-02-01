@@ -16,19 +16,9 @@ export const FurtherActions: React.FC = () => {
         <Link to="/">
           <FurtherAction
             icon={(params) => <UserIcon {...params} width={15} />}
-            label="Unwrap another user"
+            label="Generate Wrapped for another User"
           />
         </Link>
-        {window.__USER__!.loggedInWithGitHub ? null : (
-          <a href={signInWithGitHubLink()}>
-            <FurtherAction
-              icon={(params) => (
-                <PrivateContributionsIcon {...params} width={18} />
-              )}
-              label="Unlock private metrics"
-            />
-          </a>
-        )}
       </div>
     </div>
   );

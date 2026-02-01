@@ -6,8 +6,7 @@ export const RadialGradient: React.FC = () => {
     <AbsoluteFill
       style={{
         zIndex: -1,
-        background:
-          "linear-gradient(180deg, #060842 0%, #474280 50%, #396A91 100%)",
+        background: "var(--bg-space-gradient)",
       }}
     />
   );

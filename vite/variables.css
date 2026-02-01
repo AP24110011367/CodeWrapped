@@ -1,7 +1,27 @@
 :root {
-  --pane-bg-opaque: #120b2e;
-  --pane-bg: #120b2ed9;
+  /* Deep Space Theme */
+  --bg-space-deep: #050510;
+  --bg-space-gradient: linear-gradient(180deg, #050510 0%, #1a1a3a 100%);
+
+  /* Accents */
+  --accent-purple: #7d5fff;
+  --accent-cyan: #00f3ff;
+  --accent-pink: #ff007a;
+
+  /* Typography */
+  --font-main: 'Outfit', sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  --backdrop-blur: blur(12px);
+
+  /* Legacy mappins (updates) */
+  --pane-bg-opaque: #0b0b15;
+  --pane-bg: rgba(11, 11, 21, 0.85);
   --pane-text: #e0d9fc;
-  --input-color: #d946ef;
-  --pane-separator-color: #4c1d95;
+  --input-color: var(--accent-cyan);
+  --pane-separator-color: rgba(255, 255, 255, 0.1);
 }

@@ -6,6 +6,9 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  background: var(--bg-space-gradient);
+  color: #fff;
+  overflow: hidden;
 
   @media only screen and (min-width: 40em) {
     height: 100vh;
@@ -21,11 +24,13 @@
   margin: 0 auto;
   height: 196px;
   bottom: 86px;
+
   @media only screen and (min-width: 40em) {
     height: 196px;
     bottom: 130px;
     transform: translateX(18px);
   }
+
   @media only screen and (min-width: 40em) and (max-height: 64em) {
     height: 146px;
     bottom: 75px;
@@ -46,10 +51,12 @@
   width: 1080px;
   transform: translateY(16px);
   position: absolute;
+
   @media only screen and (min-width: 40em) {
     transform: translateY(48px);
     width: 1800px;
   }
+
   @media only screen and (min-width: 40em) and (max-height: 64em) {
     transform: translateY(48px);
     width: 1200px;
@@ -57,16 +64,26 @@
 }
 
 .gradientText {
-  background: linear-gradient(270.02deg, #645278 20.63%, #82b6c6 99.87%);
+  background: linear-gradient(90deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.3));
+}
+
+.glassCard {
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
 }
 
 .aboutTitle {
   color: #fff;
 
-  font-family: Mona Sans;
+  font-family: var(--font-main);
   font-size: 46px;
   font-style: normal;
   font-weight: 700;
@@ -76,30 +93,40 @@
 .aboutDescription {
   color: #ebeaee;
 
-  font-family: Mona Sans;
+  font-family: var(--font-main);
   font-size: 16px;
   font-style: normal;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
+  /* 150% */
 }
 
 .aboutButton {
   width: 172px;
-  height: 45px;
+  height: 48px;
   flex-shrink: 0;
-  border-radius: 4px;
-  border: 1px solid #4b4d5a;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: block;
   text-align: center;
-
-  background: #363745;
-
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   color: #fff;
-
-  font-family: Mona Sans;
+  font-family: var(--font-main);
   font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.aboutButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
 }
 
 .aboutLink {
@@ -111,8 +138,23 @@
   0% {
     width: 0%;
   }
+
   100% {
     width: 95%;
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
   }
 }
 

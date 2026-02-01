@@ -1,18 +1,22 @@
 .input {
-  padding: 0 16px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  background-color: white;
+  padding: 0 24px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
   display: flex;
   align-items: center;
-  caret-color: var(--input-color);
-  color: inherit;
+  caret-color: var(--accent-cyan);
+  color: white;
   flex: 1;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
   height: 56px;
   flex: 0 0 56px;
-  transition: border-color 0.1s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
   @media only screen and (min-width: 40em) {
     flex: 1;
     border-top-right-radius: 0;
@@ -22,21 +26,21 @@
 }
 
 .input:focus {
-  border-color: var(--input-color);
+  border-color: var(--accent-cyan);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.4), 0 0 60px rgba(0, 243, 255, 0.2);
   outline: none;
 }
 
 .input::placeholder {
-  color: rgba(0, 0, 0, 0.7);
-  opacity: 0.4;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
 }
 
 .invalid,
 .invalid:focus {
   border-color: rgba(175, 6, 47, 1);
-  background: linear-gradient(
-    102.95deg,
-    rgba(239, 88, 124, 0.37) -0.37%,
-    rgba(129, 65, 135, 0.37) 104.38%
-  );
+  background: linear-gradient(102.95deg,
+      rgba(239, 88, 124, 0.37) -0.37%,
+      rgba(129, 65, 135, 0.37) 104.38%);
 }

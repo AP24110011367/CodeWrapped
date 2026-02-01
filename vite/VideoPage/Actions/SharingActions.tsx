@@ -42,13 +42,18 @@ export const SharingActions: React.FC<{}> = () => {
           style={{ width: "100%", justifyContent: "flex-start", padding: 0 }}
         />
       </Link>
-      <a href={`/ig/${username}.jpg`}>
+      <Link
+        from={videoRoute.id}
+        to={"share"}
+        params={{ username }}
+        search={{ platform: "instagram" }}
+      >
         <SharingAction
           icon={(params) => <InstagramIcon {...params} />}
-          label="Download story (image)"
+          label="Share on Instagram"
           style={{ width: "100%", justifyContent: "flex-start", padding: 0 }}
         />
-      </a>
+      </Link>
     </div>
   );
 };
