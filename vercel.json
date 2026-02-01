@@ -1,11 +1,22 @@
 {
-  "buildCommand": "node build.mjs",
-  "outputDirectory": "vite/dist",
-  "installCommand": "npm install",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "/dist/server/index.js"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/vite/dist/index.html"
     }
   ]
 }
