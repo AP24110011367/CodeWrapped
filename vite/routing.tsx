@@ -94,10 +94,9 @@ const routeTree = rootRoute.addChildren([
   dashboardRoute,
 ]);
 
-// Create the router using your route tree with basepath
-export const router = new Router({ 
-  routeTree,
-  basepath: "/CodeWrapped"  // Add this line!
+// Create the router using your route tree
+export const router = new Router({
+  routeTree
 });
 
 declare module "@tanstack/react-router" {
