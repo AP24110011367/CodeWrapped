@@ -1,0 +1,14 @@
+{
+  "extends": "@jonny",
+  "plugins": ["@remotion", "require-extensions"],
+  "overrides": [
+    {
+      "files": ["remotion/**/*.{ts,tsx}"],
+      "extends": ["plugin:@remotion/recommended"]
+    },
+    {
+      "files": ["src/**/*.{ts,tsx}"],
+      "extends": ["@jonny"]
+    }
+  ]
+}

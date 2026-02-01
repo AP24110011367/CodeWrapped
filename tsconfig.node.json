@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowSyntheticDefaultImports": true,
+    "target": "ESNext",
+    "rootDir": "src",
+    "outDir": "dist",
+    "jsx": "react-jsx",
+    "strict": true,
+    "sourceMap": true
+  },
+  "include": ["src"]
+}
