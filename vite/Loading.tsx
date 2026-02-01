@@ -47,7 +47,7 @@ export const Loading = () => {
           return;
         }
 
-        window.location.href = `${import.meta.env.BASE_URL}${username}`;
+        window.location.href = `/${username}`;
       })
       .catch((err) => {
         console.log(err);
@@ -76,7 +76,7 @@ export const Loading = () => {
             filter: "drop-shadow(0 0 40px rgba(0, 243, 255, 0.6)) drop-shadow(0 0 80px rgba(125, 95, 255, 0.4))",
             animation: "pulse 2s infinite ease-in-out",
           }}
-          src={`${import.meta.env.BASE_URL}cyber-cat.png`}
+          src="/cyber-cat.png"
           alt="loading"
         />
         <div
