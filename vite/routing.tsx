@@ -7,23 +7,10 @@ import { SharePage } from "./Share/page.jsx";
 import { UserPage } from "./VideoPage/user-page.jsx";
 import { UserVideoContextProvider } from "./context.jsx";
 
-// const TanStackRouterDevtools =
-//   process.env.NODE_ENV === "production"
-//     ? () => null // Render nothing in production
-//     : React.lazy(() =>
-//         // Lazy load in development
-//         import("@tanstack/router-devtools").then((res) => ({
-//           default: res.TanStackRouterDevtools,
-//           // For Embedded Mode
-//           // default: res.TanStackRouterDevtoolsPanel
-//         })),
-//       );
-
 const rootRoute = new RootRoute({
   component: () => (
     <>
       <Outlet />
-      {/* <TanStackRouterDevtools /> */}
     </>
   ),
 });
@@ -62,7 +49,6 @@ export const shareRoute = new Route({
   path: "share",
   component: SharePage,
   validateSearch: (search: { platform?: "twitter" | "linkedin" }) => {
-    // validate and parse the search params into a typed state
     return {
       platform: search?.platform,
     };
@@ -98,6 +84,7 @@ const dashboardRoute = new Route({
   path: "/dashboard",
   component: Dashboard,
 });
+
 // Create the route tree using your routes
 const routeTree = rootRoute.addChildren([
   indexRoute,
@@ -107,8 +94,11 @@ const routeTree = rootRoute.addChildren([
   dashboardRoute,
 ]);
 
-// Create the router using your route tree
-export const router = new Router({ routeTree });
+// Create the router using your route tree with basepath
+export const router = new Router({ 
+  routeTree,
+  basepath: "/CodeWrapped"  // Add this line!
+});
 
 declare module "@tanstack/react-router" {
   interface Register {
