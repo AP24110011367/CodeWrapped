@@ -11,9 +11,9 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 await build({
   root: path.resolve(__dirname, "./vite"),
-  base: "/CodeWrapped/",  // Changed from "/" to "/CodeWrapped/"
+  base: "/CodeWrapped/",
   plugins: [react()],
-  publicDir: path.join(__dirname, "public"),
+  publicDir: path.resolve(__dirname, "./vite/public"),  // Changed to vite/public
 });
 
 // Skip TypeScript check for GitHub Pages deployment
