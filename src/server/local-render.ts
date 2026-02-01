@@ -18,6 +18,7 @@ const getBundle = async () => {
     bundledDir = await bundle({
         entryPoint: path.join(process.cwd(), "remotion/index.ts"),
         webpackOverride: (config) => config,
+        publicDir: path.join(process.cwd(), "public"),
     });
     console.log("Bundled to:", bundledDir);
     return bundledDir;
