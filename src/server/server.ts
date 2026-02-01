@@ -116,6 +116,7 @@ export const startServer = async () => {
   } else {
     app.get("/", indexHtmlProduction({ stats: true, handleUsername: false }));
     app.use(serveStatic(viteDistDir));
+    app.use(serveStatic(publicDir));
     app.get(
       "/about",
       indexHtmlProduction({ stats: true, handleUsername: false }),
