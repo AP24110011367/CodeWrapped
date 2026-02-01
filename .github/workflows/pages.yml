@@ -1,5 +1,5 @@
-# Deploy Vite site (vite/dist) to GitHub Pages using Actions
-name: Deploy Vite site to GitHub Pages
+# Build Vite site and deploy vite/dist to gh-pages branch
+name: Build and deploy Vite site to gh-pages
 on:
   push:
     branches: [ main ]
@@ -7,16 +7,11 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -25,16 +20,15 @@ jobs:
         run: npm ci
 
       - name: Build site
-        # Run the same build script you have locally (build.mjs builds vite/dist)
+        # Your build.mjs builds the site with root: ./vite -> output at vite/dist
         run: node build.mjs
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: 'vite/dist'
-
-      - name: Deploy
-        uses: actions/deploy-pages@v1
+          # Folder built by your build script
+          folder: vite/dist
+          # Deploy to gh-pages branch
+          branch: gh-pages
+          # Use default GITHUB_TOKEN provided by Actions
+          token: ${{ secrets.GITHUB_TOKEN }}
