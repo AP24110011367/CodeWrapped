@@ -24,40 +24,41 @@ export const Sidebar: React.FC<{
   setIsPlaying,
   playerRef,
 }) => {
-  return (
-    <div className={styles.sidebarWrapper}>
-      <div>
-        <div className={styles.sidebarTitleContainer}>
-          <RocketPicker
-            rocket={rocket}
-            setIsModalOpen={setIsModalOpen}
-            setIsPlaying={setIsPlaying}
-            playerRef={playerRef}
-          />
-          <div style={{ width: 16 }} />
-          <h2
-            style={{
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            {inputProps.login}
-          </h2>
+    return (
+      <div className={styles.sidebarWrapper}>
+        <div>
+          <div className={styles.sidebarTitleContainer}>
+            <RocketPicker
+              rocket={rocket}
+              setIsModalOpen={setIsModalOpen}
+              setIsPlaying={setIsPlaying}
+              playerRef={playerRef}
+            />
+            <div style={{ width: 16 }} />
+            <h2
+              style={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {inputProps.login}
+            </h2>
+          </div>
+          <DownloadButton />
         </div>
-        <DownloadButton />
-      </div>
-      {status.type === "render-error" && (
-        <div style={{ fontSize: 14 }}>
-          We{"'"}ve been notified of the error and are looking into it. Please
-          try again later.
-        </div>
-      )}
-      {/* Sharing Actions */}
-      <SharingActions />
+        {status.type === "render-error" && (
+          <div style={{ fontSize: 14 }}>
+            We{"'"}ve been notified of the error, Since we haven{"'"}t yet
+            connected the site to any cloud, download will not be available, still
+            you can watch it :)
+          </div>
+        )}
+        {/* Sharing Actions */}
+        <SharingActions />
 
-      {/* Further Action */}
-      <FurtherActions />
-    </div>
-  );
-};
+        {/* Further Action */}
+        <FurtherActions />
+      </div>
+    );
+  };
