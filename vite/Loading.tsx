@@ -26,7 +26,8 @@ export const Loading = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const reset = urlParams.get("reset");
 
-    fetch(`/api/stats`, {
+    const apiBaseUrl = import.meta.env.VITE_API_URL || '';
+    fetch(`${apiBaseUrl}/api/stats`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +76,7 @@ export const Loading = () => {
             filter: "drop-shadow(0 0 40px rgba(0, 243, 255, 0.6)) drop-shadow(0 0 80px rgba(125, 95, 255, 0.4))",
             animation: "pulse 2s infinite ease-in-out",
           }}
-          src="/cyber-cat.png"
+          src={`${import.meta.env.BASE_URL}cyber-cat.png`}
           alt="loading"
         />
         <div
