@@ -31,10 +31,6 @@
 
 Whether you're a **Night Owl** committing at 3 AM or a **Weekend Warrior** pushing open-source PRs, CodeWrapped gives your hard work the spotlight it deserves.
 
-<div align="center">
-  <img src="public/landing-page.png" alt="Landing Page Preview" width="800" style="border-radius: 10px; box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);" />
-</div>
-
 ---
 
 ## 🐱 Meet Your Companion
